@@ -1,0 +1,26 @@
+Sample usage :
+Compile either file using `make server` or `make client` command
+on the server / client machines. This need GNU Make.
+If not available, you can compile them manually :
+
+server :
+       gcc -Wall -std=c99 -g Server.c -o server -lcrypto -lssl
+
+client :
+       gcc -Wall -std=c99 -g Client.c -o client -lcrypto -lssl
+
+Also, libcrypto.a and libssl.a should be present on the system (they come with OpenSSL.)
+To install headers (on Debian) :
+~$ sudo apt-get install libssl-dev
+
+Commands to run :
+
+Server :
+~$ ./server <port_no>
+
+Client :
+~$ ./client <hostname> <port_no> <file_to_be_copied>
+
+Example :
+(On server) ~$ ./server 7897
+(On client) ~$ ./client 10.5.18.69 7897 wallpaper.jpg
